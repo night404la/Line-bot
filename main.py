@@ -16,9 +16,11 @@ def send_reminder_friday_easywallet():
     print("已發送提醒訊息")
 
 # 每週五 00:00 執行
-schedule.every().friday.at("00:00").do(send_reminder_friday_easywallet)
+#schedule.every().friday.at("00:00").do(send_reminder_friday_easywallet)
+schedule.every(1).minutes.do(send_reminder_friday_easywallet)
 
 print("LINE Bot 提醒服務啟動中...")
 while True:
     schedule.run_pending()
     time.sleep(1)
+
